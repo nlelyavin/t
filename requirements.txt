@@ -1,0 +1,11 @@
+# Python Guaranteed - 3.12.
+# Python may be > 3.9
+# Python not guaranteed < 3.9
+
+aiohttp==3.9.3
+beautifulsoup4==4.12.3
+nltk==3.8.1
+flask==3.0.2
+pandas==2.2.1
+numpy==1.26.4
+scikit-learn==1.4.1.post1

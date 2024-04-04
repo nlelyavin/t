@@ -1,4 +1,6 @@
-from typing import Union
+import ast
+from collections import defaultdict
+from typing import Union, Dict
 
 from const import Operators
 
@@ -63,3 +65,21 @@ class BoolSearcher:
                 example[i] = {place_elem[0] for place_elem in where_elem}
 
         return example
+
+
+def main():
+    result_lemmas: Dict[str, set[tuple[int]]] = defaultdict(set)
+
+    with open('../task3/result/inverted_index_lemmas.txt') as file:
+        while line := file.readline():
+            lemma, inverted_index = line.split(' - ')
+            result_lemmas[lemma] = ast.literal_eval(inverted_index)
+
+    # Пример использования:
+    query = "youth OR lucky AND extract"
+    searcher = BoolSearcher(example=query, index=result_lemmas)
+    print(searcher.bool_search())
+
+
+if __name__ == '__main__':
+    main()

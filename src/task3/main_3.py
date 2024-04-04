@@ -80,11 +80,6 @@ async def main():
             line = f'{token} - {result_tokens[token]}\n'
             file.write(line)
 
-    # Пример использования:
-    query = "посетителей OR редактировать"
-    searcher = BoolSearcher(example=query, index=result_lemmas)
-    print(searcher.bool_search())
-
 
 if __name__ == '__main__':
     asyncio.run(main())
